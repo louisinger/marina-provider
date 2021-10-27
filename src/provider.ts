@@ -10,8 +10,8 @@ import {
 } from './types';
 
 /**
- * Define the Marina provider methods.
- * Provided by marina extension at window.marina
+ * Define the Coinos provider methods.
+ * Provided by marina extension at window.coinos
  */
 export interface CoinosProvider {
   getNetwork(): Promise<'liquid' | 'regtest'>;
