@@ -4,12 +4,6 @@ export interface AddressInterface {
   derivationPath?: string;
 }
 
-export interface SignedMessage {
-  signature: SignatureBase64;
-  address: NativeSegwitAddress;
-  publicKey: ECPublicKey;
-}
-
 export enum TxStatusEnum {
   Confirmed = 1,
   Pending = 0,
@@ -50,24 +44,15 @@ export type AddressRecipient = {
   address: string; // the recipient address
 } & AssetValue;
 
-interface AssetValue {
+export interface AssetValue {
   value: number; // the amount of sats to send
   asset: string; // the asset to send
 }
 
 export type Recipient = AddressRecipient | DataRecipient;
 
-export type MarinaEventType =
-  | 'NEW_UTXO'
-  | 'NEW_TX'
-  | 'SPENT_UTXO'
-  | 'ENABLED'
-  | 'DISABLED'
-  | 'NETWORK';
-
 export type TransactionHex = string;
 export type PsetBase64 = string;
 export type SignatureBase64 = string;
 export type NativeSegwitAddress = string;
 export type ECPublicKey = string;
-export type EventListenerID = string;

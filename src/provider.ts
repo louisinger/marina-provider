@@ -1,11 +1,9 @@
 import {
   AddressInterface,
+  AssetValue,
   Balance,
-  EventListenerID,
-  MarinaEventType,
   PsetBase64,
   Recipient,
-  SignedMessage,
   Transaction,
   TransactionHex,
   Utxo,
@@ -16,32 +14,14 @@ import {
  * Provided by marina extension at window.marina
  */
 export interface MarinaProvider {
-  enable(): Promise<void>;
-
-  disable(): Promise<void>;
-
-  isEnabled(): Promise<boolean>;
-
-  setAccount(account: number): Promise<void>;
-
   getNetwork(): Promise<'liquid' | 'regtest'>;
-
-  getAddresses(): Promise<AddressInterface[]>;
-
-  getNextAddress(): Promise<AddressInterface>;
-
-  getNextChangeAddress(): Promise<AddressInterface>;
 
   sendTransaction(
     recipients: Recipient[],
     feeAsset?: string
   ): Promise<TransactionHex>;
 
-  blindTransaction(pset: PsetBase64): Promise<PsetBase64>;
-
   signTransaction(pset: PsetBase64): Promise<PsetBase64>;
-
-  signMessage(message: string): Promise<SignedMessage>;
 
   getCoins(): Promise<Utxo[]>;
 
@@ -49,9 +29,9 @@ export interface MarinaProvider {
 
   getBalances(): Promise<Balance[]>;
 
-  on(type: MarinaEventType, callback: (payload: any) => void): EventListenerID;
+  getNextAddress(): Promise<AddressInterface>;
 
-  off(listenerId: EventListenerID): void;
+  getNextChangeAddress(): Promise<AddressInterface>;
 
-  getFeeAssets(): Promise<string[]>;
+  approveSpend(toApprove: AssetValue[]): Promise<PsetBase64>;
 }
