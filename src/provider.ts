@@ -14,7 +14,7 @@ import {
  * Provided by marina extension at window.coinos
  */
 export interface CoinosProvider {
-  getNetwork(): Promise<'liquid' | 'regtest'>;
+  getNetwork(): Promise<'liquid' | 'regtest' | 'testnet'>;
 
   sendTransaction(
     recipients: Recipient[],
