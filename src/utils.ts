@@ -1,4 +1,4 @@
-import { MarinaProvider } from './provider';
+import { CoinosProvider } from './provider';
 import { DataRecipient, AddressRecipient, Recipient } from './types';
 
 /**
@@ -6,8 +6,8 @@ import { DataRecipient, AddressRecipient, Recipient } from './types';
  * @param provider the name of the provider to detect "marina" for window.marina
  * @param timeout configurable timeout, default is 3000 (expressed in milliseconds)
  */
-export async function detectProvider<T = MarinaProvider>(
-  provider: string = 'marina',
+export async function detectProvider<T = CoinosProvider>(
+  provider: string = 'coinos',
   timeout: number = 3000
 ): Promise<T> {
   let handled = false;

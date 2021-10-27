@@ -13,7 +13,7 @@ import {
  * Define the Marina provider methods.
  * Provided by marina extension at window.marina
  */
-export interface MarinaProvider {
+export interface CoinosProvider {
   getNetwork(): Promise<'liquid' | 'regtest'>;
 
   sendTransaction(
