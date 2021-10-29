@@ -49,6 +49,11 @@ export interface AssetValue {
   asset: string; // the asset to send
 }
 
+export interface WalletInfo {
+  marinaXPub: string;
+  coinosXPub: string;
+}
+
 export type Recipient = AddressRecipient | DataRecipient;
 
 export type TransactionHex = string;

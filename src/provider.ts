@@ -7,6 +7,7 @@ import {
   Transaction,
   TransactionHex,
   Utxo,
+  WalletInfo,
 } from './types';
 
 /**
@@ -34,4 +35,6 @@ export interface CoinosProvider {
   getNextChangeAddress(): Promise<AddressInterface>;
 
   approveSpend(toApprove: AssetValue[]): Promise<PsetBase64>;
+
+  getWalletInfo(): Promise<WalletInfo>;
 }
