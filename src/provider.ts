@@ -22,6 +22,9 @@ import {
  * Provided by marina extension at window.marina
  */
 export interface MarinaProvider {
+  // get the version of the installed extension
+  getVersion(): Promise<string>;
+
   // ask the extension for authorization (by hostname)
   enable(): Promise<void>;
   // disable access to the extension from the current hostname
